@@ -1,8 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { fade, fly } from 'svelte/transition';
-  import { Menu, X, Shield } from '@lucide/svelte';
+  import { Menu, X } from '@lucide/svelte';
   import { navigation } from '$lib/data/content';
+  import logoImg from '$lib/assets/DevSafe_logo.jpg';
 
   let scrolled = $state(false);
   let mobileOpen = $state(false);
@@ -33,8 +34,7 @@
     <!-- Logo -->
     <a href="/" class="flex items-center gap-2.5 group focus:outline-none" onclick={closeMobile}>
       <div class="relative flex items-center justify-center">
-        <Shield class="w-8 h-8 text-ds-cyan fill-ds-cyan/10 transition-transform duration-300 group-hover:scale-105" />
-        <span class="absolute text-[10px] font-mono text-ds-cyan font-bold">DS</span>
+        <img src={logoImg} alt="DevSafe Logo" class="w-8 h-8 rounded-lg object-cover border border-ds-border/40 transition-transform duration-300 group-hover:scale-105" />
       </div>
       <span class="font-heading text-xl font-bold tracking-tight">
         <span class="text-white">{navigation.logo.textDev}</span><span class="text-ds-cyan">{navigation.logo.textSafe}</span>

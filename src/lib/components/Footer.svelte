@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { Shield, Mail, Globe } from '@lucide/svelte';
+  import { Mail, Globe } from '@lucide/svelte';
   import { footer } from '$lib/data/content';
+  import logoImg from '$lib/assets/DevSafe_logo.jpg';
 </script>
 
 <footer class="bg-ds-bg border-t border-ds-border/50">
@@ -11,8 +12,7 @@
       <div class="md:col-span-5 space-y-4">
         <a href="/" class="flex items-center gap-2.5 focus:outline-none">
           <div class="relative flex items-center justify-center">
-            <Shield class="w-7 h-7 text-ds-cyan fill-ds-cyan/10" />
-            <span class="absolute text-[8px] font-mono text-ds-cyan font-bold">DS</span>
+            <img src={logoImg} alt="DevSafe Logo" class="w-7 h-7 rounded-lg object-cover border border-ds-border/40" />
           </div>
           <span class="font-heading text-lg font-bold tracking-tight">
             <span class="text-white">DEV</span><span class="text-ds-cyan">SAFE</span>
