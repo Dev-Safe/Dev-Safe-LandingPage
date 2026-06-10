@@ -12,6 +12,8 @@ import {
 } from '@lucide/svelte';
 import founderImg from '$lib/assets/Founder.jpg';
 import designerImg from '$lib/assets/Designer.jpg';
+import backendImg from '$lib/assets/Backend.jpg';
+import businessImg from '$lib/assets/Business.jpeg';
 
 export const navigation = {
   logo: {
@@ -141,7 +143,8 @@ export const team = {
       initials: 'BE',
       bg: '#0D1628',
       borderCyan: true,
-      tags: ['Rust', 'Go', 'gRPC']
+      tags: ['Rust', 'Go', 'gRPC'],
+      image: backendImg
     },
     {
       name: 'Favour D.',
@@ -166,7 +169,8 @@ export const team = {
       initials: 'MB',
       bg: '#1E3A5F',
       borderCyan: false,
-      tags: ['Strategy', 'Growth', 'Communication']
+      tags: ['Strategy', 'Growth', 'Communication'],
+      image: businessImg
     }
   ]
 };
