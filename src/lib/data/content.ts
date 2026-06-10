@@ -1,0 +1,202 @@
+import type { Component } from 'svelte';
+import { 
+  Code2, 
+  ShieldCheck, 
+  Palette, 
+  Lock, 
+  MapPin, 
+  Users, 
+  Rocket,
+  Mail,
+  Globe,
+} from '@lucide/svelte';
+import founderImg from '$lib/assets/Founder.jpg';
+
+export const navigation = {
+  logo: {
+    textDev: 'DEV',
+    textSafe: 'SAFE',
+  },
+  links: [
+    { name: 'Services', href: '#services' },
+    { name: 'About', href: '#about' },
+    { name: 'Our Work', href: '#work' },
+    { name: 'Team', href: '#team' },
+    { name: 'Contact', href: '#contact' }
+  ],
+  actions: {
+    ghost: { text: 'About Us', href: '#about' },
+    primary: { text: 'Get in Touch', href: '#contact' }
+  }
+};
+
+export const hero = {
+  badge: '🛡️ Cybersecurity & Software Development',
+  headline: 'We Build Digital Solutions Your Institution Can Trust',
+  subheadline: 'From custom websites to cybersecurity audits — DevSafe delivers professional tech services to churches, schools, and local businesses in Cameroon.',
+  cta: {
+    primary: { text: 'Get Started →', href: '#contact' },
+    secondary: { text: 'View Our Work', href: '#work' }
+  },
+  trustBadges: [
+    { text: 'Local & Affordable' },
+    { text: 'Student-Founded, Professional Quality' },
+    { text: 'Security-First Approach' }
+  ],
+  projectCard: {
+    status: 'Live',
+    label: 'DevSafe Projects',
+    project: 'Eventra — Event Platform',
+    progress: 71,
+    tags: ['SvelteKit', 'Rust', 'Secured ✓']
+  }
+};
+
+export const services = {
+  heading: 'What We Build For You',
+  subtitle: 'Clean, modern, and secure software services tailored to help your organization grow.',
+  items: [
+    {
+      icon: Code2 as unknown as Component,
+      title: 'Software Development',
+      description: 'Custom websites, mobile apps, and web platforms built for your specific needs. Clean, fast, and easy to manage.',
+      tags: ['Websites', 'Mobile Apps', 'Web Platforms'],
+      accentColor: '#00D4FF'
+    },
+    {
+      icon: ShieldCheck as unknown as Component,
+      title: 'Cybersecurity Services',
+      description: 'We audit your systems, identify vulnerabilities, and protect your data and clients. Prevention before cure.',
+      tags: ['Security Audits', 'Vulnerability Assessment', 'Data Protection'],
+      accentColor: '#0077FF'
+    },
+    {
+      icon: Palette as unknown as Component,
+      title: 'Design & Branding',
+      description: 'From logos to full brand identities — we make sure your institution looks professional and memorable.',
+      tags: ['Logo Design', 'UI/UX', 'Brand Identity'],
+      accentColor: '#10B981'
+    }
+  ]
+};
+
+export const whyDevSafe = {
+  heading: 'Why Local Institutions Trust DevSafe',
+  items: [
+    {
+      icon: Lock as unknown as Component,
+      title: 'Security-First Approach',
+      description: 'Every product we build is reviewed for vulnerabilities before delivery. Your data and your clients are safe.'
+    },
+    {
+      icon: MapPin as unknown as Component,
+      title: 'Local & Affordable',
+      description: 'We understand the Cameroonian market. Our pricing is built for local institutions, not multinational budgets.'
+    },
+    {
+      icon: Users as unknown as Component,
+      title: 'Full-Stack Team',
+      description: 'Frontend, backend, design, and business strategy — all in one team. No outsourcing, no middlemen.'
+    },
+    {
+      icon: Rocket as unknown as Component,
+      title: 'Real Results',
+      description: 'We are already building production-grade platforms for real clients. You benefit from that experience directly.'
+    }
+  ]
+};
+
+export const ourWork = {
+  heading: 'Currently Building',
+  subtitle: 'Real projects for real clients',
+  project: {
+    statusBadge: 'Live Project',
+    title: 'Eventra',
+    description: 'Event management and ticketing platform for Cameroon. Solving real-world coordination challenges.',
+    tags: ['SvelteKit', 'Rust', 'gRPC', 'Supabase', 'Tailwind CSS'],
+    progressLabel: 'Development in Progress',
+    progressPercent: 65,
+  },
+  ctaText: 'Want to see what we can build for you? ',
+  ctaLink: { text: 'Get in touch →', href: '#contact' }
+};
+
+export const team = {
+  heading: 'The Team Behind DevSafe',
+  subtitle: 'A dedicated team of security experts, software engineers, and designers in Cameroon.',
+  members: [
+    {
+      name: 'Verla B.',
+      role: 'Founder & Security Lead',
+      initials: 'VB',
+      bg: '#0077FF',
+      borderCyan: false,
+      tags: ['SvelteKit', 'Flutter', 'Cybersecurity'],
+      image: founderImg
+    },
+    {
+      name: 'Ken M.',
+      role: 'Backend Developer',
+      initials: 'BE',
+      bg: '#0D1628',
+      borderCyan: true,
+      tags: ['Rust', 'Go', 'gRPC']
+    },
+    {
+      name: 'Favour D.',
+      role: 'UI/UX & Brand Design',
+      initials: 'DS',
+      bg: '#1E3A5F',
+      borderCyan: false,
+      tags: ['Figma', 'Branding', 'Tailwind']
+    },
+    {
+      name: 'Godwill D.',
+      role: 'Developer & Business Dev',
+      initials: 'GD',
+      bg: '#F59E0B',
+      borderCyan: false,
+      tags: ['Development', 'Strategy', 'Client Relations']
+    },
+    {
+      name: 'Emmanual A.',
+      role: 'Business Development',
+      initials: 'MB',
+      bg: '#1E3A5F',
+      borderCyan: false,
+      tags: ['Strategy', 'Growth', 'Communication']
+    }
+  ]
+};
+
+export const ctaBanner = {
+  heading: 'Ready to Take Your Institution Digital?',
+  subtext: "Get a free consultation. We'll assess your needs and tell you exactly what we can build for you.",
+  action: { text: 'Request a Free Consultation', href: 'mailto:dev.safe@hey.com?subject=DevSafe Project Quote Inquiry' }
+};
+
+export const footer = {
+  tagline: 'Build. Secure. Protect.',
+  description: 'Professional software development and cybersecurity services for local institutions in Cameroon.',
+  quickLinks: {
+    heading: 'Navigation',
+    links: [
+      { name: 'Services', href: '#services' },
+      { name: 'About', href: '#about' },
+      { name: 'Our Work', href: '#work' },
+      { name: 'Team', href: '#team' },
+      { name: 'Contact', href: '#contact' }
+    ]
+  },
+  contact: {
+    heading: 'Get In Touch',
+    email: { text: 'dev.safe@hey.com', icon: Mail as unknown as Component },
+    website: { text: 'devsafe.cm', icon: Globe as unknown as Component },
+    whatsapp: { text: '+237 680 001 677', href: 'https://wa.me/237680001677' },
+    github: { text: 'github.com/Dev-Safe' },
+  },
+  bottom: {
+    copyright: `© ${new Date().getFullYear()} DevSafe. All rights reserved.`,
+    domain: 'devsafe.cm'
+  }
+};
