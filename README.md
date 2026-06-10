@@ -1,43 +1,98 @@
-# sv
+# DevSafe — Build. Secure. Protect.
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+The official landing page for **DevSafe**, a professional software development and cybersecurity startup based in Cameroon. Built with **SvelteKit** and styled with **Tailwind CSS v3** to deliver a high-contrast, premium "SOC dashboard" dark tech aesthetic.
 
-## Creating a project
+---
 
-If you're seeing this, you've probably already done this step. Congrats!
+## 🚀 Technology Stack
 
-```sh
-# create a new project
-npx sv create my-app
+- **Framework:** SvelteKit (latest stable with Runes)
+- **Styling:** Tailwind CSS v3 (using fluid grids, glassmorphism, and radial glows)
+- **Icons:** @lucide/svelte (packaged with custom brand SVGs for GitHub and WhatsApp)
+- **Fonts:** 
+  - `Plus Jakarta Sans` (Headings)
+  - `Inter` (Body text)
+  - `JetBrains Mono` (Code blocks, technical tags, inputs)
+
+---
+
+## ✨ Features
+
+- **Interactive Consultation Gateway:** A custom glassmorphic request form with animated submit states ("Establishing Secure Link...") and feedback panels.
+- **Scroll-Triggered Entrance Animations:** Staggered fly/fade transitions that trigger via a custom Svelte `IntersectionObserver` action as sections enter viewport.
+- **Sticky Glassmorphism Header:** Responsive navigation bar with dynamic border borders, and a custom mobile hamburger overlay menu.
+- **Cameroonian Showcase Platform:** Interactive mock terminal highlighting DevSafe's flagship project, **Eventra**, showing developmental progress.
+- **Centralized Data Layer:** Content and asset links are managed entirely within a single file (`src/lib/data/content.ts`), avoiding hardcoded values inside markup.
+
+---
+
+## 📁 Project Structure
+
+```bash
+src/
+├── lib/
+│   ├── actions/
+│   │   └── intersect.ts      # Scroll interaction observer action
+│   ├── assets/
+│   │   ├── DevSafe_logo.jpg  # Brand logo used for layout/favicon
+│   │   └── Founder.jpg       # Profile picture for founder profile
+│   ├── components/
+│   │   ├── CTABanner.svelte  # Interactive consultation form banner
+│   │   ├── Footer.svelte     # Footer links and WhatsApp integration
+│   │   ├── Hero.svelte       # Hero layout with floating dashboard card
+│   │   ├── Navbar.svelte     # Responsive glass header & mobile drawer
+│   │   ├── OurWork.svelte    # Flagship project highlight
+│   │   ├── Services.svelte   # offerings grid with cyan accent borders
+│   │   ├── Team.svelte       # Team showcase card grids
+│   │   └── WhyDevSafe.svelte # Corporate differentiator grids
+│   └── data/
+│       └── content.ts        # Centralized copy, tags, and icon mapper
+├── routes/
+│   ├── +layout.svelte        # Imports global CSS & dynamic logo favicon
+│   └── +page.svelte          # Main assembly page with SEO headers
+├── app.css                   # Global styles, variables & utility classes
+├── app.html                  # HTML shell template
+static/
+├── favicon.jpg               # Static brand fallback icon
+└── robots.txt                # Bot indexing config
 ```
 
-To recreate this project with the same configuration:
+---
 
-```sh
-# recreate this project
-npx sv@0.15.4 create --template minimal --types ts --install npm ./
+## 💻 Local Development
+
+### 1. Install Dependencies
+```bash
+npm install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
+### 2. Start Development Server
+```bash
 npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+### 3. Run Static Checks & Lints
+```bash
+npm run check
 ```
 
-## Building
-
-To create a production version of your app:
-
-```sh
+### 4. Create Production Build
+```bash
 npm run build
 ```
+Preview the production build locally:
+```bash
+npm run preview
+```
 
-You can preview the production build with `npm run preview`.
+---
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-# Dev-Safe-LandingPage
+## ☁️ Vercel Deployment
+
+This project uses `@sveltejs/adapter-auto`, meaning it is configured out-of-the-box for serverless hosting on Vercel:
+
+1. Push this repository to GitHub/GitLab/Bitbucket.
+2. Go to [Vercel](https://vercel.com) and select **Add New Project**.
+3. Import the repository.
+4. Click **Deploy**. Vercel will automatically configure the build output settings and host the site.
