@@ -11,6 +11,7 @@ import {
   Globe,
 } from '@lucide/svelte';
 import founderImg from '$lib/assets/Founder.jpg';
+import designerImg from '$lib/assets/Designer.jpg';
 
 export const navigation = {
   logo: {
@@ -148,7 +149,8 @@ export const team = {
       initials: 'DS',
       bg: '#1E3A5F',
       borderCyan: false,
-      tags: ['Figma', 'Branding', 'Tailwind']
+      tags: ['Figma', 'Branding', 'Logos'],
+      image: designerImg
     },
     {
       name: 'Godwill D.',
