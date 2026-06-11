@@ -14,6 +14,7 @@ import founderImg from '$lib/assets/Founder.jpg';
 import designerImg from '$lib/assets/Designer.jpg';
 import backendImg from '$lib/assets/Backend.jpg';
 import businessImg from '$lib/assets/Business.jpeg';
+import godwillImg from '$lib/assets/Godwill D.jpg';
 
 export const navigation = {
   logo: {
@@ -161,7 +162,8 @@ export const team = {
       initials: 'GD',
       bg: '#F59E0B',
       borderCyan: false,
-      tags: ['Development', 'Strategy', 'Client Relations']
+      tags: ['Development', 'Strategy', 'Client Relations'],
+      image: godwillImg
     },
     {
       name: 'Emmanual A.',
