@@ -13,16 +13,43 @@
   
   let isSubmitting = $state(false);
   let isSubmitted = $state(false);
+  let errorMessage = $state('');
 
-  function handleSubmit(e: SubmitEvent) {
+  async function handleSubmit(e: SubmitEvent) {
     e.preventDefault();
     isSubmitting = true;
+    errorMessage = '';
     
-    // Simulate API Submission
-    setTimeout(() => {
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '96a7e880-b78f-4c60-b59b-08a153022f04',
+          name,
+          email,
+          subject: `DevSafe Consultation Inquiry - ${name}`,
+          from_name: 'DevSafe Landing Page',
+          service,
+          message
+        })
+      });
+
+      const result = await response.json();
+      if (response.ok && result.success) {
+        isSubmitted = true;
+      } else {
+        errorMessage = result.message || 'Submission failed. Please try again.';
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      errorMessage = 'Network error. Please check your connection or email us directly.';
+    } finally {
       isSubmitting = false;
-      isSubmitted = true;
-    }, 1500);
+    }
   }
 </script>
 
@@ -154,6 +181,12 @@
                     class="w-full bg-ds-bg/65 border border-ds-border focus:border-ds-cyan focus:outline-none focus:ring-1 focus:ring-ds-cyan/30 text-white placeholder-slate-600 rounded-lg p-3 text-sm transition-all duration-200"
                   ></textarea>
                 </div>
+
+                {#if errorMessage}
+                  <p class="text-xs font-mono text-rose-500 text-center bg-rose-500/10 border border-rose-500/20 py-2.5 rounded-lg" transition:fade>
+                    Error: {errorMessage}
+                  </p>
+                {/if}
 
                 <button 
                   type="submit" 
