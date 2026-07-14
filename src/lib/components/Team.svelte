@@ -36,7 +36,7 @@
       {#if visible}
         {#each team.members as member, index}
           <div 
-            class="glass-card p-6 flex flex-col items-center text-center border border-ds-border/70 hover:border-ds-cyan/40 transition-all duration-300 relative group"
+            class="glass-card p-6 flex flex-col items-center text-center border border-ds-border/70 hover:border-ds-cyan/40 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(0,212,255,0.08)] transition-all duration-300 relative group"
             transition:fly={{ y: 30, duration: 600, delay: index * 100 + 200 }}
           >
             <!-- Top hover line glow -->
@@ -48,7 +48,7 @@
               style="background-color: {member.bg}; border: {member.borderCyan ? '2px solid #00D4FF' : 'none'};"
             >
               {#if member.image}
-                <img src={member.image} alt={member.name} class="w-full h-full object-cover" />
+                <img src={member.image} alt={member.name} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
               {:else}
                 {member.initials}
               {/if}

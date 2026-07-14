@@ -37,7 +37,7 @@
       <div class="space-y-8">
         {#each ourWork.projects as project, index}
           <div 
-            class="bg-ds-bg/60 border border-ds-border/70 border-l-[4px] {project.isLive ? 'border-l-ds-cyan' : 'border-l-ds-blue'} rounded-2xl p-8 md:p-10 relative overflow-hidden"
+            class="bg-ds-bg/60 border border-ds-border/70 border-l-[4px] {project.isLive ? 'border-l-ds-cyan' : 'border-l-ds-blue'} rounded-2xl p-8 md:p-10 relative overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(0,212,255,0.08)] group"
             transition:fly={{ y: 30, duration: 700, delay: index * 150 + 300 }}
           >
             <!-- Decorative Glow in Background -->
@@ -78,14 +78,29 @@
                     </span>
                   {/each}
                 </div>
+
+                <!-- Link/CTA (Optional) -->
+                {#if project.link}
+                  <div class="pt-2">
+                    <a 
+                      href={project.link.href} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 text-sm text-ds-cyan font-semibold hover:underline group/link"
+                    >
+                      {project.link.text}
+                      <span class="inline-block transition-transform duration-200 group-hover/link:translate-x-1">→</span>
+                    </a>
+                  </div>
+                {/if}
               </div>
 
               <!-- Right Side: Decorative Code Block -->
               <div class="lg:col-span-5 w-full">
                 {#if project.title === 'Eventra'}
-                  <div class="relative bg-ds-elevated/40 border border-ds-border/60 rounded-xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+                  <div class="relative bg-[#112240]/40 border border-[#1E3A5F]/60 rounded-xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] text-slate-300">
                     <!-- Window control dots -->
-                    <div class="flex items-center gap-1.5 mb-4 border-b border-ds-border/30 pb-3">
+                    <div class="flex items-center gap-1.5 mb-4 border-b border-[#1E3A5F]/35 pb-3">
                       <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
                       <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
                       <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
@@ -105,9 +120,9 @@
                     </div>
                   </div>
                 {:else if project.title === 'BookBridge'}
-                  <div class="relative bg-ds-elevated/40 border border-ds-border/60 rounded-xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+                  <div class="relative bg-[#112240]/40 border border-[#1E3A5F]/60 rounded-xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] text-slate-300">
                     <!-- Window control dots -->
-                    <div class="flex items-center gap-1.5 mb-4 border-b border-ds-border/30 pb-3">
+                    <div class="flex items-center gap-1.5 mb-4 border-b border-[#1E3A5F]/35 pb-3">
                       <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
                       <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
                       <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>

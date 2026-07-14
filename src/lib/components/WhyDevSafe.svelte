@@ -32,17 +32,17 @@
         {#each whyDevSafe.items as item, index}
           {@const Icon = item.icon as Component<{ class?: string }>}
           <div 
-            class="flex items-start gap-5 p-6 rounded-2xl hover:bg-ds-surface/30 border border-transparent hover:border-ds-border/30 transition-all duration-300"
+            class="flex items-start gap-5 p-6 rounded-2xl hover:bg-ds-surface/30 border border-transparent hover:border-ds-border/30 transition-all duration-300 hover:-translate-y-1 group"
             transition:fly={{ y: 35, duration: 600, delay: index * 100 + 200 }}
           >
             <!-- Icon Box -->
-            <div class="w-[60px] h-[60px] shrink-0 bg-ds-elevated border border-ds-border/60 rounded-xl flex items-center justify-center shadow-[0_0_16px_rgba(0,212,255,0.04)]">
-              <Icon class="w-7 h-7 text-ds-cyan" />
+            <div class="w-[60px] h-[60px] shrink-0 bg-ds-elevated border border-ds-border/60 rounded-xl flex items-center justify-center shadow-[0_0_16px_rgba(0,212,255,0.04)] transition-all duration-300 group-hover:scale-105 group-hover:border-ds-cyan/40">
+              <Icon class="w-7 h-7 text-ds-cyan transition-transform duration-300 group-hover:rotate-3" />
             </div>
 
             <!-- Text Content -->
             <div class="space-y-2">
-              <h3 class="font-heading text-lg font-bold text-white tracking-wide">
+              <h3 class="font-heading text-lg font-bold text-white tracking-wide group-hover:text-ds-cyan transition-colors duration-200">
                 {item.title}
               </h3>
               <p class="font-body text-slate-400 text-sm leading-relaxed">

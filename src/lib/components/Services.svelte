@@ -41,23 +41,29 @@
         {#each services.items as item, index}
           {@const Icon = item.icon as Component<{ class?: string }>}
           <div 
-            class="glass-card p-8 relative overflow-hidden flex flex-col justify-between border border-ds-border/70 hover:border-ds-cyan/40"
+            class="glass-card p-8 relative overflow-hidden flex flex-col justify-between border border-ds-border/70 hover:border-ds-cyan/40 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(0,212,255,0.08)] group"
             transition:fly={{ y: 30, duration: 600, delay: index * 150 + 200 }}
           >
             <!-- Left Accent Status Line -->
             <div 
-              class="absolute top-0 left-0 w-[4px] h-full rounded-l-[16px]" 
+              class="absolute top-0 left-0 w-[4px] group-hover:w-[6px] h-full rounded-l-[16px] transition-all duration-300" 
               style="background-color: {item.accentColor}"
             ></div>
 
-            <div>
+            <!-- Background Accent Glow -->
+            <div 
+              class="absolute -right-12 -bottom-12 w-28 h-28 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
+              style="background-color: {item.accentColor}12"
+            ></div>
+
+            <div class="relative z-10">
               <!-- Icon Container -->
-              <div class="w-12 h-12 rounded-xl bg-ds-elevated border border-ds-border flex items-center justify-center mb-6 shadow-[0_0_12px_rgba(0,212,255,0.05)]">
+              <div class="w-12 h-12 rounded-xl bg-ds-elevated border border-ds-border flex items-center justify-center mb-6 shadow-[0_0_12px_rgba(0,212,255,0.05)] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                 <Icon class="w-6 h-6 text-ds-cyan" />
               </div>
 
               <!-- Title -->
-              <h3 class="font-heading text-xl font-bold text-white mb-3">
+              <h3 class="font-heading text-xl font-bold text-white mb-3 group-hover:text-ds-cyan transition-colors duration-200">
                 {item.title}
               </h3>
 
@@ -68,7 +74,7 @@
             </div>
 
             <!-- Tags Row -->
-            <div class="flex flex-wrap gap-2 pt-4 border-t border-ds-border/30 mt-auto">
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-ds-border/30 mt-auto relative z-10">
               {#each item.tags as tag}
                 <span class="px-2.5 py-1 bg-ds-bg/60 border border-ds-border/50 rounded-md text-[10px] font-mono font-medium text-ds-cyan tracking-wide">
                   {tag}

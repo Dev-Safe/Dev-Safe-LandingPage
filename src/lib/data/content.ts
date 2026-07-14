@@ -125,7 +125,8 @@ export const ourWork = {
       description: 'Mobile-first app connecting students to buy and sell textbooks safely, with escrow-protected payments and seller ratings — built with Flutter.',
       statusBadge: 'Coming to Play Store',
       isLive: false,
-      tags: ['Flutter', 'Dart', 'Mobile App', 'Escrow Payments']
+      tags: ['Flutter', 'Dart', 'Mobile App', 'Escrow Payments'],
+      link: { text: 'Visit Website', href: 'https://book-bridge-three.vercel.app/' }
     }
   ],
   ctaText: 'Want to see what we can build for you? ',

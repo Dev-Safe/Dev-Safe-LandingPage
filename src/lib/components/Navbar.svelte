@@ -1,12 +1,13 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { fade, fly } from 'svelte/transition';
-  import { Menu, X } from '@lucide/svelte';
+  import { Menu, X, Sun, Moon } from '@lucide/svelte';
   import { navigation } from '$lib/data/content';
   import logoImg from '$lib/assets/DevSafe_logo.jpg';
 
   let scrolled = $state(false);
   let mobileOpen = $state(false);
+  let isLight = $state(false);
 
   function handleScroll() {
     scrolled = window.scrollY > 50;
@@ -15,10 +16,33 @@
   onMount(() => {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
+
+    // Set initial theme
+    const saved = localStorage.getItem('theme');
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (saved === 'light' || (!saved && systemPrefersLight)) {
+      isLight = true;
+      document.documentElement.classList.add('light');
+    } else {
+      isLight = false;
+      document.documentElement.classList.remove('light');
+    }
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   });
+
+  function toggleTheme() {
+    isLight = !isLight;
+    if (isLight) {
+      document.documentElement.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.classList.remove('light');
+      localStorage.setItem('theme', 'dark');
+    }
+  }
 
   function toggleMobile() {
     mobileOpen = !mobileOpen;
@@ -46,15 +70,29 @@
       {#each navigation.links as link}
         <a 
           href={link.href} 
-          class="text-sm font-body font-medium text-slate-300 hover:text-ds-cyan transition-colors duration-200"
+          class="text-sm font-body font-medium text-slate-300 hover:text-ds-cyan transition-colors duration-200 relative py-1.5 group/navlink"
         >
           {link.name}
+          <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-gradient-to-r from-ds-cyan to-ds-blue transition-all duration-300 -translate-x-1/2 group-hover/navlink:w-full"></span>
         </a>
       {/each}
     </div>
 
     <!-- Desktop Actions -->
     <div class="hidden md:flex items-center gap-4">
+      <!-- Theme Toggle -->
+      <button 
+        onclick={toggleTheme}
+        class="text-slate-400 hover:text-ds-cyan p-2 rounded-full hover:bg-ds-elevated/40 transition-colors focus:outline-none"
+        aria-label="Toggle theme"
+      >
+        {#if isLight}
+          <Moon class="w-4 h-4" />
+        {:else}
+          <Sun class="w-4 h-4" />
+        {/if}
+      </button>
+
       <a 
         href={navigation.actions.ghost.href} 
         class="border border-ds-cyan/60 text-ds-cyan px-5 py-2 rounded-full text-xs font-heading font-semibold hover:bg-ds-cyan/10 transition-all duration-200"
@@ -69,18 +107,33 @@
       </a>
     </div>
 
-    <!-- Mobile Menu Toggle -->
-    <button 
-      class="md:hidden text-white hover:text-ds-cyan transition-colors focus:outline-none p-1.5 rounded-lg bg-ds-surface/50 border border-ds-border/50" 
-      onclick={toggleMobile}
-      aria-label="Toggle menu"
-    >
-      {#if mobileOpen}
-        <X class="w-6 h-6" />
-      {:else}
-        <Menu class="w-6 h-6" />
-      {/if}
-    </button>
+    <!-- Mobile Actions & Menu Toggle -->
+    <div class="flex items-center gap-2 md:hidden">
+      <!-- Theme Toggle -->
+      <button 
+        onclick={toggleTheme}
+        class="text-slate-400 hover:text-ds-cyan p-2 rounded-full hover:bg-ds-elevated/40 transition-colors focus:outline-none"
+        aria-label="Toggle theme"
+      >
+        {#if isLight}
+          <Moon class="w-5 h-5" />
+        {:else}
+          <Sun class="w-5 h-5" />
+        {/if}
+      </button>
+
+      <button 
+        class="text-white hover:text-ds-cyan transition-colors focus:outline-none p-1.5 rounded-lg bg-ds-surface/50 border border-ds-border/50" 
+        onclick={toggleMobile}
+        aria-label="Toggle menu"
+      >
+        {#if mobileOpen}
+          <X class="w-6 h-6" />
+        {:else}
+          <Menu class="w-6 h-6" />
+        {/if}
+      </button>
+    </div>
   </div>
 </nav>
 

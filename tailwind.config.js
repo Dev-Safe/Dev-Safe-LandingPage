@@ -1,16 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
       colors: {
-        'ds-bg': '#0A0F1E',
-        'ds-surface': '#0D1628',
-        'ds-elevated': '#112240',
-        'ds-cyan': '#00D4FF',
-        'ds-blue': '#0077FF',
-        'ds-border': '#1E3A5F',
-        'ds-success': '#10B981',
+        'ds-bg': 'var(--color-bg-primary)',
+        'ds-surface': 'var(--color-bg-surface)',
+        'ds-elevated': 'var(--color-bg-elevated)',
+        'ds-cyan': 'var(--color-accent-cyan)',
+        'ds-blue': 'var(--color-accent-blue)',
+        'ds-border': 'var(--color-border)',
+        'ds-success': 'var(--color-success)',
       },
       fontFamily: {
         heading: ['Plus Jakarta Sans', 'sans-serif'],
