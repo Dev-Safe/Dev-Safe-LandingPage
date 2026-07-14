@@ -11,10 +11,7 @@ import {
   Globe,
 } from '@lucide/svelte';
 import founderImg from '$lib/assets/Founder.jpg';
-import designerImg from '$lib/assets/Designer.jpg';
 import backendImg from '$lib/assets/Backend.jpg';
-import businessImg from '$lib/assets/Business.jpeg';
-import godwillImg from '$lib/assets/Godwill D.jpg';
 
 export const navigation = {
   logo: {
@@ -111,16 +108,26 @@ export const whyDevSafe = {
 };
 
 export const ourWork = {
-  heading: 'Currently Building',
-  subtitle: 'Real projects for real clients',
-  project: {
-    statusBadge: 'Live Project',
-    title: 'Eventra',
-    description: 'Event management and ticketing platform for Cameroon. Solving real-world coordination challenges.',
-    tags: ['SvelteKit', 'Rust', 'gRPC', 'Supabase', 'Tailwind CSS'],
-    progressLabel: 'Development in Progress',
-    progressPercent: 65,
-  },
+  heading: 'Our Featured Projects',
+  subtitle: 'Real-world solutions built for local impact',
+  projects: [
+    {
+      title: 'Eventra',
+      tagline: 'Event ticketing & payments platform',
+      description: 'Full-stack platform for event organisers to sell tickets, run paid voting contests, and manage service bookings — built with SvelteKit and Rust/gRPC.',
+      statusBadge: 'Live',
+      isLive: true,
+      tags: ['SvelteKit', 'Rust', 'gRPC', 'Tailwind CSS']
+    },
+    {
+      title: 'BookBridge',
+      tagline: 'Peer-to-peer textbook marketplace',
+      description: 'Mobile-first app connecting students to buy and sell textbooks safely, with escrow-protected payments and seller ratings — built with Flutter.',
+      statusBadge: 'Coming to Play Store',
+      isLive: false,
+      tags: ['Flutter', 'Dart', 'Mobile App', 'Escrow Payments']
+    }
+  ],
   ctaText: 'Want to see what we can build for you? ',
   ctaLink: { text: 'Get in touch →', href: '#contact' }
 };
@@ -130,8 +137,9 @@ export const team = {
   subtitle: 'A dedicated team of security experts, software engineers, and designers in Cameroon.',
   members: [
     {
-      name: 'Verla B.',
-      role: 'Founder & Security Lead',
+      name: 'Verla Berinyuy Ndey',
+      role: 'Founder & CEO',
+      description: 'Cybersecurity major, SvelteKit & Flutter developer, product visionary. Founder of DevSafe and lead architect of BookBridge.',
       initials: 'VB',
       bg: '#0077FF',
       borderCyan: false,
@@ -139,40 +147,14 @@ export const team = {
       image: founderImg
     },
     {
-      name: 'Ken M.',
-      role: 'Backend Developer',
-      initials: 'BE',
+      name: 'Engon Ken Morel',
+      role: 'Co-Founder & CTO',
+      description: "Systems architect and backend engineer specialising in Rust and Go. Leads all backend infrastructure across DevSafe's products.",
+      initials: 'KM',
       bg: '#0D1628',
       borderCyan: true,
       tags: ['Rust', 'Go', 'gRPC'],
       image: backendImg
-    },
-    {
-      name: 'Favour D.',
-      role: 'UI/UX & Brand Design',
-      initials: 'DS',
-      bg: '#1E3A5F',
-      borderCyan: false,
-      tags: ['Figma', 'Branding', 'Logos'],
-      image: designerImg
-    },
-    {
-      name: 'Godwill D.',
-      role: 'Developer & Business Dev',
-      initials: 'GD',
-      bg: '#F59E0B',
-      borderCyan: false,
-      tags: ['Development', 'Strategy', 'Client Relations'],
-      image: godwillImg
-    },
-    {
-      name: 'Emmanual A.',
-      role: 'Business Development',
-      initials: 'MB',
-      bg: '#1E3A5F',
-      borderCyan: false,
-      tags: ['Strategy', 'Growth', 'Communication'],
-      image: businessImg
     }
   ]
 };
@@ -180,7 +162,7 @@ export const team = {
 export const ctaBanner = {
   heading: 'Ready to Take Your Institution Digital?',
   subtext: "Get a free consultation. We'll assess your needs and tell you exactly what we can build for you.",
-  action: { text: 'Request a Free Consultation', href: 'mailto:dev.safe@hey.com?subject=DevSafe Project Quote Inquiry' }
+  action: { text: 'Request a Free Consultation', href: 'mailto:contact@devsafe.cm?subject=DevSafe Project Quote Inquiry' }
 };
 
 export const footer = {
@@ -198,7 +180,7 @@ export const footer = {
   },
   contact: {
     heading: 'Get In Touch',
-    email: { text: 'dev.safe@hey.com', icon: Mail as unknown as Component },
+    email: { text: 'contact@devsafe.cm', icon: Mail as unknown as Component },
     website: { text: 'devsafe.cm', icon: Globe as unknown as Component },
     whatsapp: { text: '+237 680 001 677', href: 'https://wa.me/237680001677' },
     github: { text: 'github.com/Dev-Safe' },
