@@ -32,7 +32,7 @@
     </div>
 
     <!-- Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 justify-center">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
       {#if visible}
         {#each team.members as member, index}
           <div 
@@ -60,8 +60,13 @@
             </h3>
 
             <!-- Role -->
-            <p class="font-body text-xs font-semibold text-ds-cyan mb-4">
+            <p class="font-body text-xs font-semibold text-ds-cyan mb-3">
               {member.role}
+            </p>
+
+            <!-- Description -->
+            <p class="font-body text-slate-400 text-xs leading-relaxed mb-4">
+              {member.description}
             </p>
 
             <!-- Tags Row -->
